@@ -5,16 +5,16 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html',
-  styleUrls: ['./fetch-data.component.css']
+  styleUrls: ['./fetch-data.component.scss']
 })
 export class FetchDataComponent implements OnInit {
 
   public forecasts?: WeatherForecast[];
 
-  constructor(http: HttpClient) { 
+  constructor(http: HttpClient) {
     http.get<WeatherForecast[]>(environment.baseUrl + 'api/weatherforecast')
       .subscribe(result => {
-        this.forecasts = result;      
+        this.forecasts = result;
     }, error => console.error(error));
   }
 
